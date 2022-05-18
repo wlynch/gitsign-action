@@ -1,0 +1,17 @@
+name: 'Setup gitsign'
+description: 'Install and authorize gitsign'
+branding:
+  icon: box
+  color: green
+runs:
+  using: "composite"
+  steps:
+  - shell: bash
+    run: |
+      set -ex
+
+      curl -fsL https://github.com/sigstore/gitsign/releases/download/v0.0.2-alpha/gitsign_0.0.2-alpha_darwin_amd64 -o /usr/local/bin/gitsign
+
+      git config --local commit.gpgsign true  # Sign all commits
+      git config --local gpg.x509.program gitsign  # Use gitsign for signing
+      git config --local gpg.format x509  # gitsign expects x509 args
