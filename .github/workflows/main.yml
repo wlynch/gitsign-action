@@ -1,4 +1,6 @@
 on: [push]
+  permissions:                         
+    id-token: write  # Enable OIDC
 
 jobs:
   hello_world_job:
@@ -10,7 +12,7 @@ jobs:
       - shell: bash
         run: |
           echo $PATH
-          ls /usr/local/bin
+          which gitsign
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
           git commit --allow-empty --message="Signed commit"
