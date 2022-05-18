@@ -1,0 +1,13 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - uses: actions/checkout@v3
+      - uses: wlynch/actions-gitsign@main
+      - shell: bash
+        run: |
+          git commit --allow-empty --message="Signed commit"
+          git --no-pager log --show-signature -1
