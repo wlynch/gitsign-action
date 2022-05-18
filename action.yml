@@ -10,7 +10,10 @@ runs:
     run: |
       set -ex
 
-      curl -fsL https://github.com/sigstore/gitsign/releases/download/v0.0.2-alpha/gitsign_0.0.2-alpha_darwin_amd64 -o /usr/local/bin/gitsign
+      curl -fsL https://github.com/sigstore/gitsign/releases/download/v0.0.2-alpha/gitsign_0.0.2-alpha_linux_amd64 -o /usr/local/bin/gitsign
+      chmod +x /usr/local/bin/gitsign
+
+      gitsign -h
 
       git config --local commit.gpgsign true  # Sign all commits
       git config --local gpg.x509.program gitsign  # Use gitsign for signing
