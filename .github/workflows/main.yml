@@ -9,6 +9,8 @@ jobs:
       - uses: wlynch/gitsign-action@main
       - shell: bash
         run: |
+          echo $PATH
+          ls /usr/local/bin
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
           git commit --allow-empty --message="Signed commit"
