@@ -10,9 +10,8 @@ jobs:
       - uses: wlynch/gitsign-action@main
       - shell: bash
         run: |
-          echo $PATH
-          which gitsign
           git config --global user.email "you@example.com"
           git config --global user.name "Your Name"
+
           git commit --allow-empty --message="Signed commit"
           git --no-pager log --show-signature -1
