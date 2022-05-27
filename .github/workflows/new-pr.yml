@@ -13,10 +13,10 @@ jobs:
       with:
         ref: main
     - uses: wlynch/gitsign-action@main
-    - name: Create Commit
+    - name: Change files
       shell: bash
       run: |
-        git commit --allow-empty --message="Signed commit"
+        date > date.txt
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4.0.2
       with:
