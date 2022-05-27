@@ -2,13 +2,13 @@ name: 'Make a PR'
 on: [pull_request]
 
 jobs:
-  verify:
+  new_pr:
     permissions:                         
       id-token: write  # Enable OIDC
       pull-requests: write
       contents: write
     runs-on: ubuntu-latest
-    name: Verify commit
+    name: Make a new pull request
     steps:
     - uses: actions/checkout@v3
       with:
@@ -21,7 +21,6 @@ jobs:
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4.0.2
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
         commit-message: 'tacocat is the best palindrome'
         title: 'New PR!'
         body: >
