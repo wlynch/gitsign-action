@@ -10,7 +10,8 @@ jobs:
     name: Verify commit
     steps:
     - uses: actions/checkout@v3
-      ref: main
+      with:
+        ref: main
     - uses: wlynch/gitsign-action@main
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4.0.2
