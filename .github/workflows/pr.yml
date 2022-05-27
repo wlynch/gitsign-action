@@ -10,8 +10,4 @@ jobs:
       - uses: wlynch/gitsign-action@main
       - shell: bash
         run: |
-          git show HEAD
-
           git verify-commit HEAD
-
-          git log --show-signature -1
