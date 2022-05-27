@@ -13,6 +13,10 @@ jobs:
       with:
         ref: main
     - uses: wlynch/gitsign-action@main
+    - name: Create Commit
+      shell: bash
+      run: |
+        git commit --allow-empty --message="Signed commit"
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4.0.2
       with:
@@ -21,4 +25,3 @@ jobs:
         title: 'New PR!'
         body: >
           foo
-        delete-branch: true
