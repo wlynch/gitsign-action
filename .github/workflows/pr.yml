@@ -5,8 +5,9 @@ jobs:
     name: Verify commit
     steps:
       - uses: actions/checkout@v3
-      - uses: wlynch/gitsign-action@main
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - uses: chainguard-dev/actions/setup-gitsign@main
       - shell: bash
         run: |
           git verify-commit HEAD
-
