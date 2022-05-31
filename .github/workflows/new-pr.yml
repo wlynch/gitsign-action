@@ -13,7 +13,7 @@ jobs:
     - uses: actions/checkout@v3
       with:
         ref: main
-    - uses: wlynch/gitsign-action@main
+    - uses: chainguard-dev/actions/setup-gitsign@main
     - name: Change files
       shell: bash
       run: |
